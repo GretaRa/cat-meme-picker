@@ -1,3 +1,7 @@
+//TODO
+//Close modal when clicking outside
+//Add another *emotion* cat meme button?
+
 import { catsData } from '/data.js'
 
 const emotionRadios = document.getElementById('emotion-radios')

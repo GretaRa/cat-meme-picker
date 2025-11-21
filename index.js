@@ -1,5 +1,4 @@
 //TODO
-//Close modal when clicking outside
 //Add another *emotion* cat meme button?
 
 import { catsData } from '/data.js'
@@ -8,14 +7,27 @@ const emotionRadios = document.getElementById('emotion-radios')
 const getImageBtn = document.getElementById('get-image-btn')
 const gifsOnlyOption = document.getElementById('gifs-only-option')
 const memeModalInner = document.getElementById('meme-modal-inner')
-const memeModal = document.getElementById('meme-modal')
 const memeModalCloseBtn = document.getElementById('meme-modal-close-btn')
+const modalOverlay = document.getElementById('modal-overlay')
 
 emotionRadios.addEventListener('change', highlightCheckedOption)
 
 memeModalCloseBtn.addEventListener('click', closeModal)
 
 getImageBtn.addEventListener('click', renderCat)
+
+modalOverlay.addEventListener('click', function(event) {
+  const isOutside = !event.target.closest('.meme-modal');
+  if (isOutside) {
+    closeModal();
+  }
+})
+
+window.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+});
 
 function highlightCheckedOption(e){
     const radios = document.getElementsByClassName('radio')
@@ -26,7 +38,7 @@ function highlightCheckedOption(e){
 }
 
 function closeModal(){
-    memeModal.style.display = 'none'
+    modalOverlay.style.display = 'none'
 }
 
 function renderCat(){
@@ -38,7 +50,7 @@ function renderCat(){
         alt="${catObject.alt}"
         >
         `
-    memeModal.style.display = 'flex'
+    modalOverlay.style.display = 'flex'
 }
 
 function getSingleCatObject(){

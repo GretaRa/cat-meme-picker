@@ -1,6 +1,3 @@
-//TODO
-//Add another *emotion* cat meme button?
-
 import { catsData } from '/data.js'
 
 const emotionRadios = document.getElementById('emotion-radios')
@@ -9,6 +6,7 @@ const gifsOnlyOption = document.getElementById('gifs-only-option')
 const memeModalInner = document.getElementById('meme-modal-inner')
 const memeModalCloseBtn = document.getElementById('meme-modal-close-btn')
 const modalOverlay = document.getElementById('modal-overlay')
+const nextMemeBtn = document.getElementById('next-meme-btn')
 
 emotionRadios.addEventListener('change', highlightCheckedOption)
 
@@ -28,6 +26,8 @@ window.addEventListener('keydown', event => {
     closeModal();
   }
 });
+
+nextMemeBtn.addEventListener('click', renderCat)
 
 function highlightCheckedOption(e){
     const radios = document.getElementsByClassName('radio')
@@ -115,7 +115,3 @@ function renderEmotionsRadios(cats){
 }
 
 renderEmotionsRadios(catsData)
-
-
-
-

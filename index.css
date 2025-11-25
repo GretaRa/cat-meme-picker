@@ -119,15 +119,18 @@ input[type="radio"]{
     margin-right: 5px;
 }
 
-.get-image-btn{
+.dark-btn{
     background-color: #38573a;
     color: #e5eed3;
     padding: 15px 19px;
     font-size: 24px;
     border: none;
     border-radius: 5px;
-    margin-bottom: 8px;
     cursor: pointer;
+}
+
+.get-image-btn{
+    margin-bottom: 8px;
 }
 
 /* modal */
@@ -135,6 +138,7 @@ input[type="radio"]{
 .modal-overlay{
     display: none; /* flex when active */
     position: fixed;
+    backdrop-filter: blur(1px);
     height: 100vh;
     width: 100vw;
     top: 0;
@@ -145,17 +149,18 @@ input[type="radio"]{
 
 .meme-modal{
     display: flex;
+    flex-direction: column;
     position: fixed;
     margin: auto;
     top: 80px;
     left: 0;
     right: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     border: 1px solid #233624;
     border-radius: 5px;
     width: 420px;
-    height: 490px;
+    height: 550px;
     background-color: #ecf7eb;
 }
 
@@ -181,4 +186,5 @@ input[type="radio"]{
     color: white;
     background-color: #233624;
     border: 2px solid #233624;
+    cursor: pointer;
 }
